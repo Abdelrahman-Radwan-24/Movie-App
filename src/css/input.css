@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input-style {
+    @apply placeholder:text-center w-full h-9 focus:outline-offset-0 focus:outline-none py-[6px] px-3 mt-6 bg-black border-b-2 border-gray-300;
+  }
+  .style-aside {
+    @apply bg-black min-h-screen  fixed top-0 start-[-280px] w-[280px] z-[9999];
+  }
+  .style-li {
+    @apply pt-6 hover:text-red-600 transition-colors duration-700 cursor-pointer;
+  }
+  .style-sideNav {
+    @apply bg-white min-h-screen w-14 absolute top-0 -end-14 flex flex-col justify-between items-center py-5;
+  }
+  .arrow-up {
+    @apply fixed z-50 bg-black w-10 h-10 rounded-full hidden justify-center items-center cursor-pointer hover:bg-white hover:text-black transition-colors duration-300 bottom-6 end-6;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  display: none;
+}
+
+::selection {
+  background-color: #fff;
+  color: #000;
+}
+
+/*!=======> Custom Theme <========*/
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #888 inset;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+/*!=======> Custom Theme <========*/
+
+/*!=======> loading <========*/
+.loader {
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 10px;
+  position: relative;
+  background: currentColor;
+  color: #fff;
+  box-sizing: border-box;
+  animation: animloader 0.3s 0.3s linear infinite alternate;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  background: currentColor;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  animation: animloader1 0.3s 0.45s linear infinite alternate;
+}
+.loader::before {
+  left: -20px;
+  animation-delay: 0s;
+}
+
+@keyframes animloader {
+  0% {
+    height: 40px;
+    transform: translateY(0);
+  }
+  100% {
+    height: 10px;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes animloader1 {
+  0% {
+    height: 48px;
+  }
+  100% {
+    height: 4.8px;
+  }
+}
+
+/*!=======> loading <========*/
+
+@media (max-width: 300px) {
+  .home.container {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contacts-us,
+  .home.container {
+    padding: 20px;
+  }
+  #Playing.container {
+    padding-inline: 10px;
+  }
+  #Playing.container input {
+    width: 90%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 900px) {
+  .home.container {
+    padding-inline: 50px;
+  }
+  #Playing.container {
+    padding-inline: 10px;
+  }
+  #Playing.container input {
+    width: 70%;
+  }
+}
+
+@media (min-width: 901px) {
+  #Playing.container input {
+    width: 50%;
+  }
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Movie App" />
+    <meta name="keywords" content="Different movies  , أفلام متنوعه" />
+    <meta name="author" content="ABDELRAHMAN RADWAN" />
+    <!--?=============> Favicon <==============-->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.png"
+      type="image/x-icon"
+    />
+    <!--?=============> Title <================-->
+    <title>Movie App</title>
+    <!--?============> Animate.css <==============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--?============> Fontawesome <==============-->
+    <link rel="stylesheet" href="./src/css/all.min.css" />
+    <!--?===========> Main CSS File <============-->
+    <link rel="stylesheet" href="./src/css/output.css" />
+  </head>
+  <body class="text-white bg-[#0D0D0D] overflow-hidden">
+    <!--=========> aside <==========-->
+
+    <aside class="style-aside">
+      <div class="px-8 flex flex-col justify-between min-h-screen">
+        <div class="aside-body">
+          <ul class="font-Segoe text-base">
+            <li onclick="getNowPlaying()" class="style-li">
+              <a href="#Playing">Now Playing</a>
+            </li>
+            <li onclick="getPopular()" class="style-li">
+              <a href="#Playing">Popular</a>
+            </li>
+            <li onclick="getTopRated()" class="style-li">
+              <a href="#Playing">Top Rated</a>
+            </li>
+            <li onclick="getTrending()" class="style-li">
+              <a href="#Playing">Trending</a>
+            </li>
+            <li onclick="getUpcoming()" class="style-li">
+              <a href="#Playing">Upcoming</a>
+            </li>
+            <li class="style-li"><a href="#ContactUs">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="aside-footer mb-7">
+          <div class="flex gap-x-4 mb-5">
+            <i class="fa-brands fa-facebook-f cursor-pointer"></i>
+            <i class="fa-brands fa-twitter cursor-pointer"></i>
+            <i class="fa-solid fa-globe cursor-pointer"></i>
+          </div>
+          <p class="text-gray-400 text-sm leading-7">
+            Copyright © 2024 All Rights Reserved. <br />
+            Created by <span class="text-red-600"> Abdelrahman Radwan</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="sideNav style-sideNav">
+        <img src="./assets/images/logo.png" class="w-10" alt="movie logo" />
+        <i
+          class="fa-solid fa-align-justify fa-2x text-black cursor-pointer open-close-icon"
+        ></i>
+        <div class="icons flex flex-col gap-y-3">
+          <i class="fa-solid fa-globe text-black cursor-pointer"></i>
+          <i class="fa-solid fa-share-nodes text-black cursor-pointer"></i>
+        </div>
+      </div>
+    </aside>
+
+    <!--=========> aside <==========-->
+
+    <!--=========> input search <==========-->
+
+    <div id="Playing" class="container mt-10 scroll-mt-10">
+      <div class="text-center flex justify-center items-center">
+        <input
+          type="search"
+          placeholder="Search"
+          class="bg-black text-white h-10 px-5 rounded-full text-sm focus:outline-none border border-white"
+        />
+      </div>
+    </div>
+
+    <!--=========> input search <==========-->
+
+    <!--=========> home <==========-->
+
+    <section class="home container my-10">
+      <div
+        id="gridData"
+        class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10"
+      ></div>
+    </section>
+
+    <!--=========> home <==========-->
+
+    <!--=========> contact us <==========-->
+
+    <section id="ContactUs" class="contacts-us container my-12">
+      <h1 class="text-[32px] capitalize font-thin">contact us</h1>
+      <form class="grid md:grid-cols-2 gap-5">
+        <div>
+          <input
+            type="text"
+            required
+            maxlength="37"
+            id="name"
+            name="name"
+            class="input-style"
+            placeholder="Enter Your Name"
+          />
+          <span
+            id="errorName"
+            class="animate__animated animate__flipInX text-red-500 hidden"
+            >Invalid Name , only Characters allowed</span
+          >
+        </div>
+
+        <div>
+          <input
+            type="email"
+            required
+            id="email"
+            name="email"
+            class="input-style"
+            placeholder="Enter Your Email"
+          />
+          <span
+            id="errorEmail"
+            class="animate__animated animate__flipInX text-red-500 hidden"
+            >Invalid Email , try example@domain.com</span
+          >
+        </div>
+
+        <div>
+          <input
+            type="number"
+            required
+            id="number"
+            name="number"
+            class="input-style"
+            placeholder="Enter Your Number"
+          />
+          <span
+            id="errorNumber"
+            class="animate__animated animate__flipInX text-red-500 hidden"
+            >Invalid Phone Number</span
+          >
+        </div>
+
+        <div>
+          <input
+            type="number"
+            required
+            id="age"
+            name="age"
+            class="input-style"
+            placeholder="Enter Your Age"
+          />
+          <span
+            id="errorAge"
+            class="animate__animated animate__flipInX text-red-500 hidden"
+            >Your age must be over 16+</span
+          >
+        </div>
+
+        <div class="relative">
+          <input
+            type="password"
+            required
+            id="password"
+            name="password"
+            class="input-style"
+            placeholder="Enter Your Password"
+          />
+          <span
+            id="errorPassword"
+            class="animate__animated animate__flipInX text-red-500 hidden"
+            >password must contain numbers & letters at least 8 character</span
+          >
+          <span
+            ><i
+              class="fa-regular fa-eye-slash absolute -bottom-5 end-0 opacity-0 cursor-pointer icon-eye"
+            ></i
+          ></span>
+        </div>
+
+        <div class="relative">
+          <input
+            type="password"
+            required
+            id="repassword"
+            name="repassword"
+            class="input-style"
+            placeholder="ReEnter Password"
+          />
+          <span
+            id="errorRepassword"
+            class="animate__animated animate__flipInX text-red-500 hidden"
+            >Password not match</span
+          >
+          <span
+            ><i
+              class="fa-regular fa-eye-slash absolute -bottom-5 end-0 opacity-0 cursor-pointer icon-re-eye"
+            ></i
+          ></span>
+        </div>
+
+        <div class="text-start mt-6">
+          <button
+            type="submit"
+            id="btn-submit"
+            class="py-3 px-6 mb-4 bg-black hover:bg-white hover:text-black rounded transition-colors duration-500"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!--=========> contact us <==========-->
+
+    <!--=========> arrow Up <==========-->
+
+    <span class="arrow-up arrow-up">
+      <i class="fa-solid fa-arrow-up-long"></i>
+    </span>
+
+    <!--=========> arrow Up <==========-->
+
+    <!--=========> loading <==========-->
+
+    <div
+      class="loading fixed z-[99999] h-full w-full top-0 start-0 end-0 bottom-0 bg-black flex justify-center items-center"
+    >
+      <span class="loader"></span>
+    </div>
+
+    <!--=========> loading <==========-->
+
+    <!--!=========> JQuery File  <===========-->
+    <script src="./src/js/jquery-3.7.1.min.js"></script>
+    <!--!=========> Main JS File  <===========-->
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>
