@@ -271,7 +271,7 @@ function displayData(data) {
             <h1
               class="text-center  text-4xl mb-2 animate__animated animate__slideOutLeft"
             >
-              ${data[i].title}
+              ${data[i].title ? data[i].title : ''}
             </h1>
             <p
               class="phara line-clamp-4 text-base text-justify mb-4 animate__animated animate__slideOutLeft"
